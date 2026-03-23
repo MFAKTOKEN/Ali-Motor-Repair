@@ -1,233 +1,1402 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Motor Repair - कार मरम्मत और सर्विसिंग विशेषज्ञ | Noida Sector 93</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<title>Ali Motor Repair - Noida Sector 93</title>
+        :root {
+            --gold: #D4AF37;
+            --dark: #0a0a0a;
+            --gray: #1a1a1a;
+            --light: #f5f5f5;
+            --accent: #ff6b35;
+            --whatsapp: #25D366;
+            --noida-blue: #1e3a8a;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
 
-<style>
-html{scroll-behavior:smooth;}
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
 
-body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:#0a0a0a;
-color:white;
-}
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-/* NAV */
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px;
-background:#000;
-position:fixed;
-width:100%;
-top:0;
-z-index:1000;
-}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.logo{color:#D4AF37;font-size:20px;font-weight:bold}
+        .logo i {
+            color: var(--accent);
+        }
 
-.nav-links{
-display:flex;
-gap:20px;
-list-style:none;
-}
+        .location-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
 
-.nav-links a{
-color:white;
-text-decoration:none;
-}
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
 
-.menu-btn{
-display:none;
-font-size:25px;
-background:none;
-border:none;
-color:white;
-}
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
 
-/* MOBILE */
-@media(max-width:768px){
-.nav-links{display:none;}
-.nav-links.active{
-display:flex;
-flex-direction:column;
-background:#000;
-position:absolute;
-top:60px;
-width:100%;
-padding:20px;
-}
-.menu-btn{display:block;}
-}
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
 
-/* HERO */
-.hero{
-margin-top:70px;
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200') center/cover;
-}
+        .nav-links a:hover {
+            color: var(--gold);
+        }
 
-.hero h1{
-font-size:40px;
-color:#D4AF37;
-}
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-.btn{
-padding:12px 25px;
-background:#25D366;
-color:white;
-border-radius:30px;
-text-decoration:none;
-margin-top:20px;
-display:inline-block;
-}
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-.btn:hover{
-background:#128C7E;
-transform:scale(1.05);
-}
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+        }
 
-/* SECTION */
-.section{
-padding:80px 20px;
-text-align:center;
-}
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--gold), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease;
+        }
 
-.card{
-background:#1a1a1a;
-padding:20px;
-margin:10px;
-border-radius:10px;
-transition:0.3s;
-}
+        .hero-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: rgba(30, 58, 138, 0.3);
+            border: 1px solid var(--noida-blue);
+            border-radius: 50px;
+            margin-bottom: 30px;
+            color: #60a5fa;
+            font-weight: 500;
+            animation: fadeInUp 1s ease 0.1s backwards;
+        }
 
-.card:hover{
-transform:translateY(-5px);
-}
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
 
-/* FORM */
-input,textarea{
-width:90%;
-padding:10px;
-margin:10px;
-border-radius:5px;
-border:none;
-}
+        .hero-badges {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.3s backwards;
+            flex-wrap: wrap;
+        }
 
-button{
-padding:12px 25px;
-background:#25D366;
-border:none;
-color:white;
-border-radius:20px;
-}
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 25px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--gold);
+            border-radius: 50px;
+            font-weight: 500;
+        }
 
-/* MAP */
-iframe{
-width:100%;
-height:300px;
-border:none;
-margin-top:20px;
-}
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 50px;
+            background: var(--whatsapp);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease 0.4s backwards;
+            border: 2px solid var(--whatsapp);
+        }
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-background:#000;
-}
-</style>
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--whatsapp);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 50px;
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+            margin-left: 20px;
+        }
+
+        .secondary-btn:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Location Highlight Bar */
+        .location-bar {
+            background: linear-gradient(90deg, var(--noida-blue), #1e40af);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .location-bar i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* Social Bar */
+        .social-bar {
+            background: var(--gray);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .social-bar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .social-item:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .social-item i {
+            font-size: 1.5rem;
+        }
+
+        .social-item.instagram i { color: #E4405F; }
+        .social-item.facebook i { color: #1877F2; }
+        .social-item.youtube i { color: #FF0000; }
+        .social-item.whatsapp i { color: var(--whatsapp); }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 60px 50px;
+            background: var(--dark);
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 50px;
+            background: var(--gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .service-card {
+            padding: 50px 40px;
+            background: var(--dark);
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .service-card p {
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-service-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 30px;
+            background: var(--whatsapp);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--whatsapp);
+        }
+
+        .contact-service-btn:hover {
+            background: transparent;
+            color: var(--whatsapp);
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+            background: var(--gray);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--gold);
+            transform: translateX(10px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .feature-content p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 50px;
+            background: var(--gray);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item div strong {
+            color: var(--gold);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .address-box {
+            background: rgba(30, 58, 138, 0.1);
+            border: 1px solid var(--noida-blue);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .address-box h4 {
+            color: #60a5fa;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-container {
+            margin-top: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+
+        .map-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .map-link:hover {
+            background: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .map-link.secondary {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .map-link.secondary:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .contact-form {
+            background: var(--dark);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--gold);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: var(--gray);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--light);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+
+        .whatsapp-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 60px 50px 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-address {
+            background: rgba(30, 58, 138, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid var(--noida-blue);
+            margin-bottom: 20px;
+        }
+
+        .footer-address i {
+            color: #60a5fa;
+            margin-right: 8px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h5 {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            opacity: 0.6;
+        }
+
+        /* Floating WhatsApp Button */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 5px 30px rgba(37, 211, 102, 0.7); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            .location-badge {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-badges {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .secondary-btn {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            .social-bar-content {
+                gap: 20px;
+            }
+            .map-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-<div class="logo">Ali Motor</div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-wrench"></i>
+                Ali Motor Repair
+            </a>
+            
+            <div class="location-badge">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Noida Sector 93</span>
+            </div>
 
-<ul class="nav-links">
-<li><a href="#home">Home</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+            <ul class="nav-links">
+                <li><a href="#home">होम</a></li>
+                <li><a href="#services">सेवाएं</a></li>
+                <li><a href="#why-us">क्यों चुनें</a></li>
+                <li><a href="#contact">संपर्क</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-<button class="menu-btn">☰</button>
-</nav>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>📍 Pal Market, Gejha, Noida Sector 93, UP 201304</span>
+            </div>
 
-<!-- HERO -->
-<section class="hero" id="home">
-<h1>Ali Motor Repair</h1>
-<p>Noida Sector 93 Car Service Expert</p>
+            <h1>Ali Motor Repair</h1>
+            <p>आपकी कार का परफेक्ट हेल्थ पार्टनर<br>15+ साल का विश्वास और अनुभव</p>
+            
+            <div class="hero-badges">
+                <div class="hero-badge">
+                    <i class="fas fa-check-circle" style="color: var(--whatsapp);"></i>
+                    <span>प्रमाणित मैकेनिक</span>
+                </div>
+                <div class="hero-badge">
+                    <i class="fas fa-clock" style="color: var(--accent);"></i>
+                    <span>24/7 आपातकालीन सेवा</span>
+                </div>
+                <div class="hero-badge">
+                    <i class="fas fa-shield-alt" style="color: var(--gold);"></i>
+                    <span>6 महीने वारंटी</span>
+                </div>
+            </div>
 
-<a href="https://wa.me/919389655352" class="btn">WhatsApp Now</a>
-</section>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                <a href="https://wa.me/919389655352?text=नमस्ते%20Ali%20Motor%20Repair,%20मुझे%20अपनी%20कार%20की%20सर्विस%20चाहिए" class="cta-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    अभी बुक करें
+                </a>
+                <a href="tel:+919389655352" class="secondary-btn">
+                    <i class="fas fa-phone"></i>
+                    कॉल करें
+                </a>
+            </div>
+        </div>
+    </section>
 
-<!-- SERVICES -->
-<section class="section" id="services">
-<h2>Services</h2>
+    <!-- Location Highlight Bar -->
+    <div class="location-bar">
+        <i class="fas fa-store"></i>
+        <span>🚗 Pal Market, Gejha, Sector 93, Noida - 201304 | 🕘 9 AM - 9 PM</span>
+    </div>
 
-<div class="card">Car Servicing</div>
-<div class="card">AC Repair</div>
-<div class="card">Engine Work</div>
-<div class="card">Dent & Paint</div>
+    <!-- Social Media Bar -->
+    <div class="social-bar">
+        <div class="social-bar-content">
+            <a href="https://www.instagram.com/2940ashraf" class="social-item instagram" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span>@2940ashraf</span>
+            </a>
+            <a href="https://www.facebook.com/share/1GJcSeYbB6/" class="social-item facebook" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="#" class="social-item youtube" onclick="alert('YouTube channel जल्द आ रहा है!')">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="https://wa.me/919389655352" class="social-item whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span>+91 93896 55352</span>
+            </a>
+        </div>
+    </div>
 
-</section>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-item scroll-reveal">
+            <div class="stat-number">5000+</div>
+            <div class="stat-label">खुश ग्राहक</div>
+        </div>
+        <div class="stat-item scroll-reveal">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">साल का अनुभव</div>
+        </div>
+        <div class="stat-item scroll-reveal">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">कार प्रतिदिन सर्विस</div>
+        </div>
+        <div class="stat-item scroll-reveal">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">आपातकालीन सेवा</div>
+        </div>
+    </section>
 
-<!-- CONTACT -->
-<section class="section" id="contact">
-<h2>Contact & Booking</h2>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header scroll-reveal">
+            <h2>हमारी सेवाएं</h2>
+            <p>Noida Sector 93 में सभी प्रकार की कार मरम्मत और सर्विसिंग</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card scroll-reveal">
+                <div class="service-icon">
+                    <i class="fas fa-oil-can"></i>
+                </div>
+                <h3>पूर्ण सर्विसिंग</h3>
+                <p>इंजन ऑयल, फिल्टर, ब्रेक्स, और पूर्ण चेकअप। हर 5000 किमी पर अवश्य करवाएं।</p>
+                <a href="https://wa.me/919389655352?text=पूर्ण%20सर्विसिंग%20की%20जानकारी%20चाहिए" class="contact-service-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> संपर्क करें
+                </a>
+            </div>
+            
+            <div class="service-card scroll-reveal">
+                <div class="service-icon">
+                    <i class="fas fa-car-crash"></i>
+                </div>
+                <h3>डेंटिंग और पेंटिंग</h3>
+                <p>Accident के बाद कार की शक्ल बदल दें। ओरिजिनल कलर मैचिंग और प्रीमियम फिनिश।</p>
+                <a href="https://wa.me/919389655352?text=डेंटिंग%20और%20पेंटिंग%20की%20जानकारी%20चाहिए" class="contact-service-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> संपर्क करें
+                </a>
+            </div>
+            
+            <div class="service-card scroll-reveal">
+                <div class="service-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h3>एसी रिपेयर</h3>
+                <p>गर्मी में ठंडी हवा का वादा। AC Gas भरना, कंप्रेसर रिपेयर, पाइप लीकेज सब ठीक करें।</p>
+                <a href="https://wa.me/919389655352?text=AC%20रिपेयर%20की%20जानकारी%20चाहिए" class="contact-service-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> संपर्क करें
+                </a>
+            </div>
+            
+            <div class="service-card scroll-reveal">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>इंजन ओवरहालिंग</h3>
+                <p>पुरानी कार को नई बना दें। पिस्टन, रिंग, बेयरिंग सब बदलकर इंजन को नई जान दें।</p>
+                <a href="https://wa.me/919389655352?text=इंजन%20ओवरहालिंग%20की%20जानकारी%20चाहिए" class="contact-service-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> संपर्क करें
+                </a>
+            </div>
+            
+            <div class="service-card scroll-reveal">
+                <div class="service-icon">
+                    <i class="fas fa-car-battery"></i>
+                </div>
+                <h3>इलेक्ट्रिकल वर्क</h3>
+                <p>बैटरी, वायरिंग, स्टार्टर, Alternator सब ठीक करें। Modern diagnostic tools से जांच।</p>
+                <a href="https://wa.me/919389655352?text=इलेक्ट्रिकल%20वर्क%20की%20जानकारी%20चाहिए" class="contact-service-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> संपर्क करें
+                </a>
+            </div>
+            
+            <div class="service-card scroll-reveal">
+                <div class="service-icon">
+                    <i class="fas fa-tire"></i>
+                </div>
+                <h3>टायर और व्हील</h3>
+                <p>टायर बदलना, अलाइनमेंट, बैलेंसिंग, पंचर रिपेयर। सभी ब्रांड्स उपलब्ध।</p>
+                <a href="https://wa.me/919389655352?text=टायर%20और%20व्हील%20की%20जानकारी%20चाहिए" class="contact-service-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> संपर्क करें
+                </a>
+            </div>
+        </div>
+    </section>
 
-<p>📍 Sector 93, Noida</p>
-<p>📞 9389655352</p>
+    <!-- Why Choose Us -->
+    <section class="why-us" id="why-us">
+        <div class="section-header scroll-reveal">
+            <h2>क्यों चुनें Ali Motor Repair?</h2>
+            <p>Noida Sector 93 का सबसे भरोसेमंद कार सर्विस सेंटर</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>प्रमाणित तकनीशियन</h3>
+                    <p>Maruti, Hyundai, Tata, Mahindra सभी कंपनियों के प्रशिक्षित मैकेनिक। 10+ साल का अनुभव।</p>
+                </div>
+            </div>
+            
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>आधुनिक उपकरण</h3>
+                    <p>Computerized diagnostic machines, hydraulic lifts, और latest tools से काम।</p>
+                </div>
+            </div>
+            
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>सस्ते दाम</h3>
+                    <p>Company service center से 40% कम दाम में बेहतर काम। पारदर्शी बिलिंग।</p>
+                </div>
+            </div>
+            
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>समय पर काम</h3>
+                    <p>वादा किया समय पर काम पूरा। Emergency service 30 मिनट में तैयार।</p>
+                </div>
+            </div>
+            
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>6 महीने वारंटी</h3>
+                    <p>हर काम पर लिखित वारंटी। अगर कोई दिक्कत आए, फ्री में ठीक करेंगे।</p>
+                </div>
+            </div>
+            
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>पिकअप और डिलीवरी</h3>
+                    <p>Noida Sector 93 और आसपास के इलाकों में फ्री पिकअप। घर बैठे सर्विस करवाएं।</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- FORM -->
-<input type="text" id="name" placeholder="Your Name">
-<input type="text" id="phone" placeholder="Phone Number">
-<textarea id="msg" placeholder="Problem"></textarea>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header scroll-reveal">
+            <h2>संपर्क करें</h2>
+            <p>Noida Sector 93 में आज ही अपॉइंटमेंट बुक करें</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info scroll-reveal">
+                <h3>Ali Motor Repair</h3>
+                
+                <div class="address-box">
+                    <h4><i class="fas fa-store"></i> वर्कशॉप पता</h4>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        <strong>Pal Market, Gejha,</strong><br>
+                        Sector 93, Noida,<br>
+                        Uttar Pradesh - 201304<br>
+                        <span style="color: #60a5fa; font-size: 0.95rem;">(Noida-Greater Noida Expressway के पास)</span>
+                    </p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <strong>फोन / WhatsApp</strong>
+                        +91 93896 55352<br>
+                        <small style="color: var(--accent);">24/7 आपातकालीन लाइन खुली</small>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <strong>ईमेल</strong>
+                        alimotorrepair@gmail.com
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <strong>कार्य समय</strong>
+                        सोमवार - शनिवार: 9:00 AM - 9:00 PM<br>
+                        रविवार: 10:00 AM - 6:00 PM<br>
+                        <small style="color: var(--whatsapp);">आपातकालीन सेवा 24 घंटे</small>
+                    </div>
+                </div>
 
-<button onclick="sendWhatsApp()">Book on WhatsApp</button>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3503.1234567890123!2d77.39123456789012!3d28.53512345678901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDMyJzA2LjQiTiA3N8KwMjMnMjguNSJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+                
+                <div class="map-buttons">
+                    <a href="https://maps.app.goo.gl/w1MupidE4kAAMFhg6" target="_blank" class="map-link">
+                        <i class="fas fa-location-arrow"></i>
+                        Google Maps पर देखें
+                    </a>
+                    <a href="https://wa.me/919389655352?text=मैं%20Noida%20Sector%2093%20से%20आ%20रहा%20हूं" target="_blank" class="map-link secondary">
+                        <i class="fab fa-whatsapp"></i>
+                        रास्ता पूछें
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-form scroll-reveal">
+                <h3 style="color: var(--gold); margin-bottom: 30px; font-family: 'Playfair Display', serif;">Quick Booking</h3>
+                
+                <form onsubmit="handleBooking(event)">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> आपका नाम</label>
+                        <input type="text" id="customerName" placeholder="पूरा नाम दर्ज करें" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> मोबाइल नंबर</label>
+                        <input type="tel" id="customerPhone" placeholder="9876543210" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-car"></i> कार मॉडल</label>
+                        <input type="text" id="carModel" placeholder="जैसे: Maruti Swift 2018">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-wrench"></i> सेवा चुनें</label>
+                        <select id="serviceType">
+                            <option value="पूर्ण सर्विसिंग">पूर्ण सर्विसिंग</option>
+                            <option value="डेंटिंग और पेंटिंग">डेंटिंग और पेंटिंग</option>
+                            <option value="AC रिपेयर">AC रिपेयर</option>
+                            <option value="इंजन ओवरहालिंग">इंजन ओवरहालिंग</option>
+                            <option value="इलेक्ट्रिकल वर्क">इलेक्ट्रिकल वर्क</option>
+                            <option value="टायर/व्हील">टायर/व्हील</option>
+                            <option value="अन्य">अन्य</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> आपका एरिया (Noida)</label>
+                        <input type="text" id="customerArea" placeholder="जैसे: Sector 93, Gejha, etc." value="Sector 93, Noida">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> समस्या का विवरण</label>
+                        <textarea id="problemDesc" rows="3" placeholder="कार में क्या दिक्कत है..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp पर बुकिंग भेजें
+                    </button>
+                </form>
 
-<!-- MAP -->
-<iframe src="https://maps.google.com/maps?q=noida%20sector%2093&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(212, 175, 55, 0.2); text-align: center;">
+                    <p style="margin-bottom: 15px; opacity: 0.8;">या सीधे कॉल करें</p>
+                    <a href="tel:+919389655352" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; background: var(--accent); color: white; text-decoration: none; border-radius: 50px; font-weight: 600;">
+                        <i class="fas fa-phone-alt"></i>
+                        +91 93896 55352
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>
+                    <i class="fas fa-wrench"></i>
+                    Ali Motor Repair
+                </h4>
+                
+                <div class="footer-address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>Pal Market, Gejha, Sector 93</strong><br>
+                    Noida, Uttar Pradesh - 201304
+                </div>
+                
+                <p>Noida Sector 93 की सबसे भरोसेमंद कार सर्विस सेंटर। 15 साल से ग्राहकों की सेवा में।</p>
+                
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/2940ashraf" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1GJcSeYbB6/" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" onclick="alert('YouTube जल्द आ रहा है!')" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/919389655352" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h5>सेवाएं</h5>
+                <ul>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> पूर्ण सर्विसिंग</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> डेंटिंग पेंटिंग</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> AC रिपेयर</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> इंजन ओवरहालिंग</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h5>क्विक लिंक्स</h5>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> होम</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> सेवाएं</a></li>
+                    <li><a href="#why-us"><i class="fas fa-chevron-right"></i> क्यों चुनें</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> संपर्क</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h5>सहायता</h5>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> वारंटी जानकारी</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> पिकअप सेवा (Noida)</a></li>
+                    <li><a href="https://maps.app.goo.gl/w1MupidE4kAAMFhg6" target="_blank"><i class="fas fa-chevron-right"></i> लोकेशन देखें</a></li>
+                    <li><a href="tel:+919389655352"><i class="fas fa-chevron-right"></i> आपातकालीन कॉल</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Ali Motor Repair. सर्वाधिकार सुरक्षित। | 📍 Pal Market, Gejha, Sector 93, Noida</p>
+        </div>
+    </footer>
 
-<!-- FOOTER -->
-<footer>
-© 2026 Ali Motor Repair
-</footer>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919389655352?text=नमस्ते%20Ali%20Motor%20Repair,%20मुझे%20कार%20सर्विस%20चाहिए" class="float-whatsapp" target="_blank" title="WhatsApp पर मैसेज करें">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-<script>
-const btn=document.querySelector('.menu-btn');
-const nav=document.querySelector('.nav-links');
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
 
-btn.onclick=()=>{
-nav.classList.toggle('active');
-}
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
 
-// WhatsApp Booking
-function sendWhatsApp(){
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let msg=document.getElementById("msg").value;
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
 
-let text=`Name: ${name}%0APhone: ${phone}%0AProblem: ${msg}`;
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
 
-window.open(`https://wa.me/919389655352?text=${text}`);
-}
-</script>
+        // WhatsApp Booking Function
+        function handleBooking(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const car = document.getElementById('carModel').value || 'Not specified';
+            const service = document.getElementById('serviceType').value;
+            const area = document.getElementById('customerArea').value || 'Sector 93, Noida';
+            const problem = document.getElementById('problemDesc').value || 'No details provided';
+            
+            const message = `नमस्ते Ali Motor Repair,%0A%0A*नया बुकिंग रिक्वेस्ट*%0A%0A👤 नाम: ${name}%0A📱 फोन: ${phone}%0A🚗 कार: ${car}%0A🔧 सेवा: ${service}%0A📍 एरिया: ${area}%0A📝 विवरण: ${problem}%0A%0Aकृपया कन्फर्म करें।`;
+            
+            window.open(`https://wa.me/919389655352?text=${message}`, '_blank');
+        }
 
+        // Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            alert('Mobile menu यहाँ खुलेगा! (Advanced version में dropdown add करें)');
+        });
+    </script>
 </body>
 </html>
